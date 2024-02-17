@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,39 +10,132 @@
     <!-- Raleway Font   -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
-   <!-- Tailwind and DaisyUI cdn  -->
+    <!-- Tailwind and DaisyUI cdn  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./style.css">
 
 </head>
-<body>
-    <header>
-    
+
+<body class="font-raleway">
+    <header class="mx-32 mt-14">
+        <nav>
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a>Home</a></li>
+                            <li><a>About</a></li>
+                            <li><a>Destination</a></li>
+                            <li><a>Search</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-ghost text-4xl text-[#030712] font-extrabold">P-Ticket</a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 font-medium text-lg text-[#030712B3] gap-14">
+                        <li><a>Home</a></li>
+                        <li><a>About</a> </li>
+                        <li><a>Destination</a></li>
+                        <li><a>Search</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <button class="btn  bg-[#1DD1001A] border border-[#1DD10066]">
+                        <p class="text-xl font-bold text-[#1DD100]">Bus</p>
+                        <img src="./images/bus-icon.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-banner">
+            <div class="flex justify-center mt-9">
+                <img src="./images/banner.png" alt="">
+            </div>
+        </div>
     </header>
+
     <main>
+
+        <section class="bestOffers mx-32">
+            <h1 class="font-bold text-4xl mt-28 mb-12 text-center text-[#030712]">Best offers for you</h1>
+
+         <div class="flex justify-around ">
+            <div class="bg-[#FFBF0F]  flex justify-center items-center  rounded-3xl">
+                <div class="p-12">
+                    <h1 class="text-[40px] text-black font-black">15% OFF</h1>
+                    <p class="font-semibold text-xl">on your next purchase</p>
+                    <p class="font-medium text-lg">use by January 2024</p>
+                </div>
+                <div class="">
+                    <img src="./images/coupon-devider.png" alt="">
+                </div>
+                <div class="p-12">
+                    <h1 class="font-bold text-3xl">NEW15</h1>
+                    <p class="font-medium text-xl text-[#03071266]">Coupon Code</p>
+                </div>
+            </div>
+            
+            <div class="bg-[#F78C9C]  flex justify-center items-center  rounded-3xl">
+                <div class="p-16">
+                    <h1 class="text-[40px] text-black font-black">20% OFF</h1>
+                    <p class="font-semibold text-xl">on your next purchase</p>
+                    <p class="font-medium text-lg">use by January 2024</p>
+                </div>
+                <div class="p-0">
+                    <img src="./images/coupon-devider.png" alt="">
+                </div>
+                <div class="p-16">
+                    <h1 class="font-bold text-3xl">Couple20</h1>
+                    <p class="font-medium text-xl text-[#03071266]">Coupon Code</p>
+                </div>
+            </div>
+         </div>
+
+         <div class="flex justify-center mt-16">
+            <button class="btn  text-[#1DD100] border-[#1DD100] rounded-xl py-5 px-7 ">See All Offers</button>
+         </div>
+
+        </section>
+
+        <section class="PHParibahan mt-28">
+            
+        </section>
+
 
     </main>
 
+    <!-- Footer Done -->
     <footer class="bg-[#030712] text-white py-[120px] px-32">
 
-       <div class="flex justify-between">
-        <div>
-            <h1 class="mb-4 font-extrabold text-4xl">P-Ticket</h1>
-            <p class="text-[#FFFFFFCC] text-lg">P-Ticket is a digital platform to make your <br> daily commuting better.</p>
-        
-        </div>
-        
-        <div>
-            <p class="mb-5">Download our app</p>
-            <img src="./images/play-store.svg" alt="">
-        
-        </div>
+        <div class="flex justify-between">
+            <div>
+                <h1 class="mb-4 font-extrabold text-4xl">P-Ticket</h1>
+                <p class="text-[#FFFFFFCC] text-lg">P-Ticket is a digital platform to make your <br> daily commuting
+                    better.</p>
 
-       </div>
-        <div class="mt-12 divide-y divider-[#7120204d] divide-dashed">
+            </div>
+
+            <div>
+                <p class="mb-5">Download our app</p>
+                <img src="./images/play-store.svg" alt="">
+
+            </div>
+
+        </div>
+        <div class="mt-12 divide-y divide-dashed divider-[#FFFFFF4D]">
             <div></div>
             <div></div>
             <div></div>
@@ -51,16 +145,17 @@
             <div>
                 <p class="text-[#FFFFFFB3]">@all rights reserved, P-Ticket services limited.2024</p>
             </div>
-            <div class="flex gap-8">
+            <div class="flex gap-8 font-medium">
                 <li>Terms & condition</li>
                 <li>Return & refund policy</li>
                 <li>Privacy policy</li>
             </div>
         </div>
-    
+
     </footer>
 
 
     <script src="./script.js"></script>
 </body>
+
 </html>

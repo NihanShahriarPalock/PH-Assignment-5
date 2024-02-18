@@ -1,4 +1,3 @@
-
 function updateTotalPrice() {
     total = 0;
     const ticketPrices = document.getElementsByClassName('ticketPrice');
@@ -17,10 +16,22 @@ function updateTotalPrice() {
 
 // Code Select Seat and Price 
 let seatCount = 0;
+let preventDouble = 0;
 const tickets = document.getElementsByClassName("kbd");
 for (let index = 0; index < tickets.length; index++) {
     const ticket = tickets[index];
-    ticket.addEventListener("click", function () {
+    ticket.addEventListener("click", function (event) {
+        
+        const elementId = event.target.getAttribute("id");
+
+        if (preventDouble <4){
+            const buttonElement = document.getElementById(elementId);
+            if (buttonElement) {
+                buttonElement.disabled = true;
+            } 
+            preventDouble++;
+        }
+
         const ticketIdNumber = ticket.innerText;
 
         const ticketIdNumberShow = document.getElementById('ticketIdNumberShow');
@@ -28,6 +39,8 @@ for (let index = 0; index < tickets.length; index++) {
         tckIdShow.innerText = ticketIdNumber;
         if (document.getElementsByClassName('ticketPrice').length < 4) {
             ticketIdNumberShow.appendChild(tckIdShow);
+            event.target.style.backgroundColor = "#1DD100";
+            event.target.style.color = "white";
         }
 
         const ticketClassShow = document.getElementById('ticketClassShow');
@@ -40,7 +53,7 @@ for (let index = 0; index < tickets.length; index++) {
         // Update total ticket price after adding ticket
         if (document.getElementsByClassName('ticketPrice').length < 4) {
             const ticketPrice = document.createElement("p");
-            ticketPrice.innerText = "550"; 
+            ticketPrice.innerText = "550";
             ticketPrice.classList.add('ticketPrice');
             ticketPriceShow.appendChild(ticketPrice);
 
@@ -49,13 +62,13 @@ for (let index = 0; index < tickets.length; index++) {
             alert("Sorry, you cannot buy more than 4 tickets");
         }
 
-  
+
         // Total Seat Left Number
         const totalSeat = document.getElementById('seatsLeft');
-        const minSeats = 36; 
+        const minSeats = 36;
         if (parseInt(totalSeat.innerText) > minSeats) {
-            let minusSeatNumber = parseInt(totalSeat.innerText) - 1; 
-            totalSeat.innerText = minusSeatNumber; 
+            let minusSeatNumber = parseInt(totalSeat.innerText) - 1;
+            totalSeat.innerText = minusSeatNumber;
         }
 
         //Total Buy Ticket Number 
@@ -65,8 +78,8 @@ for (let index = 0; index < tickets.length; index++) {
             currentSelectedSeat.innerText = seatCount;
         }
 
-
     })
+
 }
 
 // Coupon button click event listener
@@ -91,34 +104,7 @@ couponBtn.addEventListener("click", function () {
     }
 })
 
-
 let grandTotalElement = document.getElementById("grandTotal");
-
-function setBackgroundColor(elementId) {
-    const element = document.getElementById(elementId)
-    if (document.getElementsByClassName('ticketPrice').length < 4) {
-        element.classList.add('bg-[#1DD100]');
-        element.classList.add('text-[#FFFFFF]');
-
-    }
-
-}
-
-function getElementTextById(elementId) {
-    const element = document.getElementById(elementId);
-    const text = element.innerText;
-    return text;
-}
-
-
-
-function selectSingleSeat(element) {
-    getElementTextById(element);
-    setBackgroundColor(element);
-    // setKeyboardColor(selectSingle);
-    // console.log("Clicked", element);
-
-}
 
 function couponCode(elementId) {
     const discountElement = total * elementId;
@@ -126,9 +112,6 @@ function couponCode(elementId) {
     let grandTotalElement = document.getElementById("grandTotal");
     grandTotalElement.innerText = total - discountElement;
 
-
-    // const discountPrice = total - discountElement;
-    // console.log(discountElement);
     const discountId = document.getElementById('discount');
     const discountCreateElement = document.createElement("p");
     discountCreateElement.innerText = discountElement;
@@ -145,11 +128,10 @@ function couponCode(elementId) {
 function modalHide() {
     const addElement = document.getElementById('bodyID');
     addElement.classList.add('opacity-0');
-  
 }
 
 function modalShow() {
     const addElement = document.getElementById('bodyID');
     addElement.classList.remove('opacity-0');
-
 }
+

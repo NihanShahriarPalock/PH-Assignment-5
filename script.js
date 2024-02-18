@@ -1,10 +1,6 @@
-
-// Declare total variable outside event listeners
-let total = 0;
-
-// Function to update total price
+// let total = 0;
 function updateTotalPrice() {
-    // Calculate total price
+    
     total = 0;
     const ticketPrices = document.getElementsByClassName('ticketPrice');
     for (let i = 0; i < ticketPrices.length; i++) {
@@ -14,6 +10,10 @@ function updateTotalPrice() {
     // Update total price display
     const totalPriceElement = document.getElementById('totalPrice');
     totalPriceElement.innerText = total;
+
+    // let grandTotalElement = document.getElementById("grandTotal");
+    // grandTotalElement.innerText = total;
+
 }
 
 // Adding event listeners to ticket buttons
@@ -58,35 +58,25 @@ couponBtn.addEventListener("click", function () {
     const couponElement = document.getElementById("coupon-input").value;
     if (total == 2200) {
         if (couponElement==="NEW15"){
-
-            const discountElement = total * 0.15;
-            // const discountPrice = total - discountElement;
-            console.log(discountElement);
-            const discountId = document.getElementById('discount');
-            const discountCreateElement = document.createElement("p");
-            discountCreateElement.innerText = discountElement;
-            discountId.appendChild(discountCreateElement);
-
-
-            const addElement = document.getElementById('couponBox');
-            addElement.classList.add('hidden');
-
-            const removeElement = document.getElementById('discountDiv');
-            removeElement.classList.remove('hidden');
-            
-
-
-
-        
+            couponCode(0.15);
         }
 
-    
-        
+        else if (couponElement==="Couple 20"){
+            couponCode(0.20);
+        }
+        else{
+            alert("Enter Correct Coupon");
+        }
+   
     }
     else {
         alert("Coupon only validate if you buy 4 tickets");
     }
 })
+
+
+
+
 
 
 function setBackgroundColor(elementId) {
@@ -112,5 +102,21 @@ function selectSingleSeat(element){
     setBackgroundColor(element);
     // setKeyboardColor(selectSingle);
     // console.log("Clicked", element);
+
+}
+
+function couponCode(elementId){
+    const discountElement = total * elementId;
+    // const discountPrice = total - discountElement;
+    console.log(discountElement);
+    const discountId = document.getElementById('discount');
+    const discountCreateElement = document.createElement("p");
+    discountCreateElement.innerText = discountElement;
+    discountId.appendChild(discountCreateElement);
+    
+    const addElement = document.getElementById('couponBox');
+    addElement.classList.add('hidden');
+    const removeElement = document.getElementById('discountDiv');
+    removeElement.classList.remove('hidden');
 
 }

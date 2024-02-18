@@ -1,6 +1,5 @@
-// let total = 0;
+
 function updateTotalPrice() {
-    
     total = 0;
     const ticketPrices = document.getElementsByClassName('ticketPrice');
     for (let i = 0; i < ticketPrices.length; i++) {
@@ -16,7 +15,8 @@ function updateTotalPrice() {
 
 }
 
-// Adding event listeners to ticket buttons
+// Code Select Seat and Price 
+let seatCount = 0;
 const tickets = document.getElementsByClassName("kbd");
 for (let index = 0; index < tickets.length; index++) {
     const ticket = tickets[index];
@@ -37,18 +37,35 @@ for (let index = 0; index < tickets.length; index++) {
             ticketClassShow.appendChild(ticketClass);
         }
 
-        // Update total price after adding ticket
+        // Update total ticket price after adding ticket
         if (document.getElementsByClassName('ticketPrice').length < 4) {
             const ticketPrice = document.createElement("p");
-            ticketPrice.innerText = "550"; // Example ticket price
-            ticketPrice.classList.add('ticketPrice'); 
+            ticketPrice.innerText = "550"; 
+            ticketPrice.classList.add('ticketPrice');
             ticketPriceShow.appendChild(ticketPrice);
 
-            // Update total price after adding ticket
             updateTotalPrice();
         } else {
             alert("Sorry, you cannot buy more than 4 tickets");
         }
+
+  
+        // Total Seat Left Number
+        const totalSeat = document.getElementById('seatsLeft');
+        const minSeats = 36; 
+        if (parseInt(totalSeat.innerText) > minSeats) {
+            let minusSeatNumber = parseInt(totalSeat.innerText) - 1; 
+            totalSeat.innerText = minusSeatNumber; 
+        }
+
+        //Total Buy Ticket Number 
+        if (parseInt(document.getElementById('selectedSeat').innerText) < 4) {
+            seatCount++;
+            const currentSelectedSeat = document.getElementById('selectedSeat');
+            currentSelectedSeat.innerText = seatCount;
+        }
+
+
     })
 }
 
@@ -57,17 +74,17 @@ const couponBtn = document.getElementById('coupon-btn')
 couponBtn.addEventListener("click", function () {
     const couponElement = document.getElementById("coupon-input").value;
     if (total == 2200) {
-        if (couponElement==="NEW15"){
+        if (couponElement === "NEW15") {
             couponCode(0.15);
         }
 
-        else if (couponElement==="Couple 20"){
+        else if (couponElement === "Couple 20") {
             couponCode(0.20);
         }
-        else{
+        else {
             alert("Enter Correct Coupon");
         }
-   
+
     }
     else {
         alert("Coupon only validate if you buy 4 tickets");
@@ -76,18 +93,15 @@ couponBtn.addEventListener("click", function () {
 
 
 let grandTotalElement = document.getElementById("grandTotal");
-grandTotalElement.innerText = total;
-
-
 
 function setBackgroundColor(elementId) {
     const element = document.getElementById(elementId)
-    if (document.getElementsByClassName('ticketPrice').length < 4){
+    if (document.getElementsByClassName('ticketPrice').length < 4) {
         element.classList.add('bg-[#1DD100]');
         element.classList.add('text-[#FFFFFF]');
 
     }
-   
+
 }
 
 function getElementTextById(elementId) {
@@ -98,7 +112,7 @@ function getElementTextById(elementId) {
 
 
 
-function selectSingleSeat(element){
+function selectSingleSeat(element) {
     getElementTextById(element);
     setBackgroundColor(element);
     // setKeyboardColor(selectSingle);
@@ -106,11 +120,11 @@ function selectSingleSeat(element){
 
 }
 
-function couponCode(elementId){
+function couponCode(elementId) {
     const discountElement = total * elementId;
 
     let grandTotalElement = document.getElementById("grandTotal");
-    grandTotalElement.innerText = total - discountElement ;
+    grandTotalElement.innerText = total - discountElement;
 
 
     // const discountPrice = total - discountElement;
@@ -119,7 +133,7 @@ function couponCode(elementId){
     const discountCreateElement = document.createElement("p");
     discountCreateElement.innerText = discountElement;
     discountId.appendChild(discountCreateElement);
-    
+
     const addElement = document.getElementById('couponBox');
     addElement.classList.add('hidden');
     const removeElement = document.getElementById('discountDiv');

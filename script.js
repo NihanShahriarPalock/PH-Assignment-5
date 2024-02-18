@@ -11,8 +11,8 @@ function updateTotalPrice() {
     const totalPriceElement = document.getElementById('totalPrice');
     totalPriceElement.innerText = total;
 
-    // let grandTotalElement = document.getElementById("grandTotal");
-    // grandTotalElement.innerText = total;
+    let grandTotalElement = document.getElementById("grandTotal");
+    grandTotalElement.innerText = total;
 
 }
 
@@ -75,7 +75,8 @@ couponBtn.addEventListener("click", function () {
 })
 
 
-
+let grandTotalElement = document.getElementById("grandTotal");
+grandTotalElement.innerText = total;
 
 
 
@@ -107,8 +108,13 @@ function selectSingleSeat(element){
 
 function couponCode(elementId){
     const discountElement = total * elementId;
+
+    let grandTotalElement = document.getElementById("grandTotal");
+    grandTotalElement.innerText = total - discountElement ;
+
+
     // const discountPrice = total - discountElement;
-    console.log(discountElement);
+    // console.log(discountElement);
     const discountId = document.getElementById('discount');
     const discountCreateElement = document.createElement("p");
     discountCreateElement.innerText = discountElement;

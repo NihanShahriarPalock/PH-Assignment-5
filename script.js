@@ -140,3 +140,20 @@ function couponCode(elementId) {
     removeElement.classList.remove('hidden');
 
 }
+
+
+
+
+
+
+function modalHide() {
+    const addElement = document.getElementById('bodyID');
+    addElement.classList.add('opacity-0');
+  
+}
+
+function modalShow() {
+    const addElement = document.getElementById('bodyID');
+    addElement.classList.add('opacity-100');
+
+}

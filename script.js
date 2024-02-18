@@ -135,3 +135,13 @@ function modalShow() {
     addElement.classList.remove('opacity-0');
 }
 
+function scrollSection() {
+    var section = document.getElementById('PHParibahan');
+    if (section) {   
+        var offsetTop = section.offsetTop;   
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+    }
+}

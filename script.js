@@ -142,10 +142,6 @@ function couponCode(elementId) {
 }
 
 
-
-
-
-
 function modalHide() {
     const addElement = document.getElementById('bodyID');
     addElement.classList.add('opacity-0');
@@ -154,6 +150,6 @@ function modalHide() {
 
 function modalShow() {
     const addElement = document.getElementById('bodyID');
-    addElement.classList.add('opacity-100');
+    addElement.classList.remove('opacity-0');
 
 }

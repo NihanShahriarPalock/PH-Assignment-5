@@ -121,7 +121,6 @@
 
                 <div class="flex justify-around items-center bg-white rounded-3xl mx-32 p-8 mt-12">
 
-
                     <!-- 1st Part -->
                     <div class="flex flex-col">
                         <div class="flex justify-between">
@@ -159,10 +158,12 @@
                                 <div>
                                     <div class="flex gap-6 my-6">
                                         <div class="bg-[#0307120D] p-5 rounded-xl ">
-                                            <p class="font-inter font-medium text-[#030712CC]">Boarding Point - Abdullapur</p>
+                                            <p class="font-inter font-medium text-[#030712CC]">Boarding Point -
+                                                Abdullapur</p>
                                         </div>
                                         <div class="bg-[#0307120D] p-5 rounded-xl ">
-                                            <p class="font-inter font-medium text-[#030712CC]">Dropping Point - Dolphin Mor</p>
+                                            <p class="font-inter font-medium text-[#030712CC]">Dropping Point - Dolphin
+                                                Mor</p>
                                         </div>
                                         <div class="bg-[#0307120D] p-5 rounded-xl ">
                                             <p class="font-inter font-medium text-[#030712CC]">Est. Time - 11 Hour</p>
@@ -187,11 +188,265 @@
                         <p class="text-2xl font-semibold">Per Seat</p>
 
                     </div>
-
-
-
                 </div>
+
+                <!-- Available Seat Section -->
+                <!-- <div class="mt-7 rounded-3xl bg-white p-8 flex">
+
+                    <div class="divide-y divide-dashed">
+                        <div>
+                            <h1 class="text-2xl font-semibold mb-6">Select Your Seat</h1>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="py-5 flex gap-2">
+                                <img src="./images/seat-gray.png" alt="">
+                                <p class="font-inter text-lg font-medium text-[#03071280]">Available</p>
+                            </div>
+                            <div>
+                                <div class="py-5 flex gap-2">
+                                    <img src="./images/seat-green-filled.png" alt="">
+                                    <p class="font-inter text-lg font-medium text-[#1DD100]">Selected</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="bg-[#0307121A] kbd kbd-lg  mt-6 flex float-right ">
+                                <img src="./images/icon-steering-wheel.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="divider divider-horizontal"></div>
+                    </div>
+
+
+
+
+
+                </div> -->
+
+
+            <div class="bg-[#FFF] rounded-3xl mx-32 p-8 mt-6 flex ">
+            
+                <div>
+                    <div class="divide-y divide-dashed">
+                        <div class="py-8 text-[#030712] text-2xl font-semibold">Select Your Seat</div>
+                        <div class="flex justify-between">
+                            <div class="flex text-[#03071280] text-lg font-medium py-5">
+                                <img src="./images/seat-gray.png" alt="">
+                                <h4 class="ml-2">Available</h4>
+                            </div>
+                            <div class="flex text-[#1DD100] text-lg font-medium py-5">
+                                <img src="./images/seat-green-filled.png" alt="">
+                                <h4 class="ml-2">Selected</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-end mt-5">
+                                <kbd class="kbd kbd-lg ">
+                                    <img src="./images/steering-wheel.svg" alt="">
+                                </kbd>
+                            </div>
+            
+                        </div>
+            
+                    </div>
+                    
+                    <!-- SEAT NUMBER -->
+                    <div class="flex my-4 w-full justify-between gap-8">
+                        <h4>A</h4>
+                        <kbd onclick="selectSingleSeat('A1')" id="A1" class="kbd kbd-lg btn">A1</kbd>
+                        <kbd onclick="selectSingleSeat('A2')" id="A2" class="kbd kbd-lg btn">A2</kbd>
+                        <kbd onclick="selectSingleSeat('A3')" id="A3" class="kbd kbd-lg btn">A3</kbd>
+                        <kbd onclick="selectSingleSeat('A4')" id="A4" class="kbd kbd-lg btn">A4</kbd>
+            
+                    </div>
+            
+            
+                    <div class="flex my-4 w-full justify-between gap-8">
+                        <h4>B</h4>
+                        <kbd id="B1" class="kbd kbd-lg btn">B1</kbd>
+                        <kbd id="B2" class="kbd kbd-lg btn">B2</kbd>
+                        <kbd id="B3" class="kbd kbd-lg btn">B3</kbd>
+                        <kbd id="B4" class="kbd kbd-lg btn">B4</kbd>
+            
+                    </div>
+            
+            
+                    <!-- <div class="flex  justify-between gap-8 my-4 w-full">
+                        <h4>C</h4>
+                        <kbd class="kbd kbd-lg">C1</kbd>
+                        <kbd class="kbd kbd-lg">C2</kbd>
+                        <kbd class="kbd kbd-lg">C3</kbd>
+                        <kbd class="kbd kbd-lg">C4</kbd>
+            
+                    </div>
+            
+                    <div class="flex justify-between gap-8 my-4 w-full">
+                        <h4>D</h4>
+                        <kbd class="kbd kbd-lg">D1</kbd>
+                        <kbd class="kbd kbd-lg">D2</kbd>
+                        <kbd class="kbd kbd-lg">D3</kbd>
+                        <kbd class="kbd kbd-lg">D4</kbd>
+            
+                    </div> -->
+            
+                    <!-- <div class="flex  justify-between gap-8 my-4 w-full">
+                        <h4>E</h4>
+                        <kbd class="kbd kbd-lg">E1</kbd>
+                        <kbd class="kbd kbd-lg">E2</kbd>
+                        <kbd class="kbd kbd-lg">E3</kbd>
+                        <kbd class="kbd kbd-lg">E4</kbd>
+            
+                    </div>
+            
+                    <div class="flex  justify-between gap-8 my-4 w-full">
+                        <h4>F</h4>
+                        <kbd class="kbd kbd-lg">F1</kbd>
+                        <kbd class="kbd kbd-lg">F2</kbd>
+                        <kbd class="kbd kbd-lg">F3</kbd>
+                        <kbd class="kbd kbd-lg">F4</kbd>
+            
+            
+                    </div>
+            
+                    <div class="flex  justify-between gap-8 my-4 w-full">
+                        <h4>G</h4>
+                        <kbd class="kbd kbd-lg">G1</kbd>
+                        <kbd class="kbd kbd-lg">G2</kbd>
+                        <kbd class="kbd kbd-lg">G3</kbd>
+                        <kbd class="kbd kbd-lg">G4</kbd>
+            
+                    </div>
+            
+                    <div class="flex  justify-between gap-8 my-4 w-full">
+                        <h4>H</h4>
+                        <kbd class="kbd kbd-lg">H1</kbd>
+                        <kbd class="kbd kbd-lg">H2</kbd>
+                        <kbd class="kbd kbd-lg">H3</kbd>
+                        <kbd class="kbd kbd-lg">H4</kbd>
+            
+                    </div>
+            
+                    <div class="flex  justify-between gap-8 my-4 w-full">
+                        <h4>I</h4>
+                        <kbd class="kbd kbd-lg">I1</kbd>
+                        <kbd class="kbd kbd-lg">I2</kbd>
+                        <kbd class="kbd kbd-lg">I3</kbd>
+                        <kbd class="kbd kbd-lg">I4</kbd>
+            
+            
+            
+                    </div> -->
+            
+                </div>
+                <div class="divider divider-horizontal"></div>
+            
+                <div>
+                    <h1>Select Your Seat</h1>
+                    <div class="rounded-xl bg-[#F7F8F8] w-[433px] p-8 font-inter">
+                        <div class="flex justify-between">
+                            <div>
+                                <h1>Seat <span class="badge bg-[#1DD100] text-white font-bold">2</span></h1>
+                            </div>
+                            <div>
+                                <h1>Class</h1>
+                            </div>
+                            <div>
+                                <h1>Price</h1>
+                            </div>
+                        </div>
+            
+                        <div class="flex justify-between my-4 text-[#03071299]">
+                            <div id ="ticketIdNumberShow">
+                                
+                            </div>
+                            <div id ="ticketClassShow">
+                               
+                            </div>
+                            <div id ="ticketPriceShow" >
+                                
+                            </div>
+                        </div>
+                      
+            
+                        <div class="flex justify-between font-medium my-4">
+                            <div >
+                                <p>Total Price</p>
+                            </div>
+                            <div id="totalPrice">
+                                
+                            </div>
+                        </div>
+            
+                        <div class="flex justify-between items-center bg-white p-2 rounded-xl">
+                            <div>
+                                <input type="text" id="coupon-input" class="input " placeholder="Have any coupon?">
+            
+            
+                            </div>
+                            <div>
+                                <button id="coupon-btn" class="btn bg-[#1DD100] text-white font-semibold py-3 px-5">Apply</button>
+            
+                            </div>
+                        </div>
+            
+                        <div class="flex justify-between font-medium mt-6">
+                            <h1>Grand Total</h1>
+                            <p>BDT <span>1100</span></p>
+                        </div>
+            
+            
+                    </div>
+
+
+                    <label class="form-control w-full max-w-xs">
+                        <div class="label mt-6">
+                            <span class="label-text font-semibold font-inter">Passenger Name *</span>                          
+                        </div>
+                        <input type="text" placeholder="Enter Your Name" class="input input-bordered w-full max-w-md mt-4"  />
+                    
+                    </label>
+
+                    <label class="form-control w-full max-w-xs">
+                        <div class="label  mt-6">
+                            <span class="label-text font-semibold font-inter">Phone Number *</span>
+                        </div>
+                        <input type="number" placeholder="Enter Your Phone number" class="input input-bordered w-full max-w-xs mt-4" />
+                    
+                    </label>
+
+                    <label class="form-control w-full max-w-xs">
+                        <div class="label  mt-6">
+                            <span class="label-text font-semibold font-inter">Email ID</span>
+                        </div>
+                        <input type="text" placeholder="Enter Your email id" class="input input-bordered w-full max-w-xs mt-4" />
+                    
+                    </label>
+            
+                   
+                   
+                    
+                    <div class="mt-6">
+                        <button class="btn btn-wide bg-[#1DD100] text-white text-xl font-extrabold ">Next</button>
+                    </div>
+            
+                    <div class="flex justify-around text-[#03071299] underline list-none mt-6">
+                        <li>Terms and Condition</li>
+                        <li>Cancellation Policy</li>
+                    </div>
+            
+                </div>
+            
+            
             </div>
+
+
+            </div>
+
 
 
 

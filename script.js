@@ -1,60 +1,102 @@
 
-let totalPrice = 0;
+// Declare total variable outside event listeners
+let total = 0;
+
+// Function to update total price
 function updateTotalPrice() {
     // Calculate total price
-    let total = 0;
+    total = 0;
     const ticketPrices = document.getElementsByClassName('ticketPrice');
     for (let i = 0; i < ticketPrices.length; i++) {
         total += parseInt(ticketPrices[i].innerText);
     }
 
+    // Update total price display
     const totalPriceElement = document.getElementById('totalPrice');
     totalPriceElement.innerText = total;
 }
+
+// Adding event listeners to ticket buttons
 const tickets = document.getElementsByClassName("kbd");
-// console.log(tickets);
 for (let index = 0; index < tickets.length; index++) {
     const ticket = tickets[index];
-    // console.log(element);
-    ticket.addEventListener("click",function(){
-        // console.log("Clicked");
+    ticket.addEventListener("click", function () {
         const ticketIdNumber = ticket.innerText;
-       
+
         const ticketIdNumberShow = document.getElementById('ticketIdNumberShow');
         const tckIdShow = document.createElement("p");
         tckIdShow.innerText = ticketIdNumber;
-        ticketIdNumberShow.appendChild(tckIdShow);
-
+        if (document.getElementsByClassName('ticketPrice').length < 4) {
+            ticketIdNumberShow.appendChild(tckIdShow);
+        }
 
         const ticketClassShow = document.getElementById('ticketClassShow');
         const ticketClass = document.createElement("p");
         ticketClass.innerText = "Economy";
-        ticketClassShow.appendChild(ticketClass);
+        if (document.getElementsByClassName('ticketPrice').length < 4) {
+            ticketClassShow.appendChild(ticketClass);
+        }
 
-        updateTotalPrice();
-        const ticketPriceShow = document.getElementById('ticketPriceShow');
-        const ticketPrice = document.createElement("p");
-        ticketPrice.innerText = "550"; 
-        ticketPrice.classList.add('ticketPrice'); 
-        ticketPriceShow.appendChild(ticketPrice);
-        updateTotalPrice();
+        // Update total price after adding ticket
+        if (document.getElementsByClassName('ticketPrice').length < 4) {
+            const ticketPrice = document.createElement("p");
+            ticketPrice.innerText = "550"; // Example ticket price
+            ticketPrice.classList.add('ticketPrice'); 
+            ticketPriceShow.appendChild(ticketPrice);
 
+            // Update total price after adding ticket
+            updateTotalPrice();
+        } else {
+            alert("Sorry, you cannot buy more than 4 tickets");
+        }
     })
-    
 }
 
-// For Coupon code
+// Coupon button click event listener
 const couponBtn = document.getElementById('coupon-btn')
-couponBtn.addEventListener("click",function(){
+couponBtn.addEventListener("click", function () {
     const couponElement = document.getElementById("coupon-input").value;
-    console.log(couponElement);
+    if (total == 2200) {
+        if (couponElement==="NEW15"){
+
+            const discountElement = total * 0.15;
+            // const discountPrice = total - discountElement;
+            console.log(discountElement);
+            const discountId = document.getElementById('discount');
+            const discountCreateElement = document.createElement("p");
+            discountCreateElement.innerText = discountElement;
+            discountId.appendChild(discountCreateElement);
+
+
+            const addElement = document.getElementById('couponBox');
+            addElement.classList.add('hidden');
+
+            const removeElement = document.getElementById('discountDiv');
+            removeElement.classList.remove('hidden');
+            
+
+
+
+        
+        }
+
+    
+        
+    }
+    else {
+        alert("Coupon only validate if you buy 4 tickets");
+    }
 })
 
 
 function setBackgroundColor(elementId) {
     const element = document.getElementById(elementId)
-    element.classList.add('bg-[#1DD100]');
-    element.classList.add('text-[#FFFFFF]');
+    if (document.getElementsByClassName('ticketPrice').length < 4){
+        element.classList.add('bg-[#1DD100]');
+        element.classList.add('text-[#FFFFFF]');
+
+    }
+   
 }
 
 function getElementTextById(elementId) {

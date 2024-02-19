@@ -17,18 +17,18 @@ function updateTotalPrice() {
 // Code Select Seat and Price 
 let seatCount = 0;
 let preventDouble = 0;
-const tickets = document.getElementsByClassName("kbd");
+const tickets = document.getElementsByClassName("seatClass");
 for (let index = 0; index < tickets.length; index++) {
     const ticket = tickets[index];
     ticket.addEventListener("click", function (event) {
-        
+
         const elementId = event.target.getAttribute("id");
 
-        if (preventDouble <4){
+        if (preventDouble < 4) {
             const buttonElement = document.getElementById(elementId);
             if (buttonElement) {
                 buttonElement.disabled = true;
-            } 
+            }
             preventDouble++;
         }
 
@@ -124,7 +124,7 @@ function couponCode(elementId) {
 
 }
 
-
+// For Modal Function 
 function modalHide() {
     const addElement = document.getElementById('bodyID');
     addElement.classList.add('opacity-0');
@@ -135,13 +135,28 @@ function modalShow() {
     addElement.classList.remove('opacity-0');
 }
 
+
+function modalActive() {
+    if (seatCount <= 0) {
+        alert("Please select at least one ticket");
+        buttonIdDisable.disabled = true;
+    } else {
+        // buttonIdDisable.disabled = false;       
+        modalHide();       
+    }
+
+}
+
+
 function scrollSection() {
-    var section = document.getElementById('PHParibahan');
-    if (section) {   
-        var offsetTop = section.offsetTop;   
+    var currentSection = document.getElementById('PHParibahan');
+    if (currentSection) {
+        var offsetTop = currentSection.offsetTop;
         window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
         });
     }
 }
+
+

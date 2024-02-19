@@ -2,9 +2,8 @@
 
 let seatCount = 0;
 let preventDouble = 0;
-
-
-   // Code for Select Seat and Price 
+let total = 0;
+// Code for Select Seat and Price 
 const tickets = document.getElementsByClassName("seatClass");
 for (let index = 0; index < tickets.length; index++) {
     const ticket = tickets[index];
@@ -68,23 +67,10 @@ for (let index = 0; index < tickets.length; index++) {
 }
 
 
-function updateTotalPrice() {
-    total = 0;
-    const ticketPrices = document.getElementsByClassName('ticketPrice');
-    for (let i = 0; i < ticketPrices.length; i++) {
-        total += parseInt(ticketPrices[i].innerText);
-    }
-
-    const totalPriceElement = document.getElementById('totalPrice');
-    totalPriceElement.innerText = total;
-
-    let grandTotalElement = document.getElementById("grandTotal");
-    grandTotalElement.innerText = total;
-
-}
 
 
 // Coupon Code Function
+
 function couponCode(elementId) {
     const discountElement = total * elementId;
 
@@ -100,29 +86,48 @@ function couponCode(elementId) {
     addElement.classList.add('hidden');
     const removeElement = document.getElementById('discountDiv');
     removeElement.classList.remove('hidden');
-
+    updateCouponButton();
 }
+
+const couponBtn = document.getElementById('coupon-btn');
+const couponInput = document.getElementById("coupon-input");
+
+
+function updateCouponButton() {
+    if (total > 0) {
+        couponBtn.disabled = false;
+    } else {
+        couponBtn.disabled = true;
+    }
+}
+
+
 // Coupon button click event listener
-const couponBtn = document.getElementById('coupon-btn')
+
+couponBtn.disabled = true;
 couponBtn.addEventListener("click", function () {
-    const couponElement = document.getElementById("coupon-input").value;
-    if (total == 2200) {
+    const couponElement = couponInput.value;
+    if (total === 2200) {
         if (couponElement === "NEW15") {
             couponCode(0.15);
-        }
-
-        else if (couponElement === "Couple 20") {
+        } else if (couponElement === "Couple 20") {
             couponCode(0.20);
-        }
-        else {
+        } else {
             alert("Enter A Valid Coupon");
         }
-
-    }
-    else {
+    } else {
         alert("Coupon only validate if you buy 4 tickets");
     }
-})
+});
+
+
+
+function updateTotal(newTotal) {
+    total = newTotal;
+    updateCouponButton();
+}
+
+updateTotal(0);
 
 
 // Buy Now Button Function
@@ -139,9 +144,9 @@ function scrollSection() {
 }
 
 
-    // Next Button Function
+// Next Button Function
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     var phoneInput = document.getElementById("phone-Input");
     var nextButton = document.getElementById("next-button");
 
@@ -153,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    
+
     phoneInput.addEventListener('input', checkValidity);
 });
 
@@ -176,8 +181,28 @@ function modalActive() {
         alert("Please select at least one ticket");
         buttonIdDisable.disabled = true;
     } else {
-        // buttonIdDisable.disabled = false;       
+               
         modalHide();
     }
 
 }
+
+
+
+function updateTotalPrice() {
+    total = 0;
+    const ticketPrices = document.getElementsByClassName('ticketPrice');
+    for (let i = 0; i < ticketPrices.length; i++) {
+        total += parseInt(ticketPrices[i].innerText);
+    }
+
+    const totalPriceElement = document.getElementById('totalPrice');
+    totalPriceElement.innerText = total;
+
+    let grandTotalElement = document.getElementById("grandTotal");
+    grandTotalElement.innerText = total;
+
+    updateCouponButton(); 
+}
+
+

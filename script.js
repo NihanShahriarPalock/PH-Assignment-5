@@ -95,7 +95,7 @@ couponBtn.addEventListener("click", function () {
             couponCode(0.20);
         }
         else {
-            alert("Enter Correct Coupon");
+            alert("Enter A Valid Coupon");
         }
 
     }
@@ -124,29 +124,6 @@ function couponCode(elementId) {
 
 }
 
-// For Modal Function 
-function modalHide() {
-    const addElement = document.getElementById('bodyID');
-    addElement.classList.add('opacity-0');
-}
-
-function modalShow() {
-    const addElement = document.getElementById('bodyID');
-    addElement.classList.remove('opacity-0');
-}
-
-
-function modalActive() {
-    if (seatCount <= 0) {
-        alert("Please select at least one ticket");
-        buttonIdDisable.disabled = true;
-    } else {
-        // buttonIdDisable.disabled = false;       
-        modalHide();       
-    }
-
-}
-
 
 function scrollSection() {
     var currentSection = document.getElementById('PHParibahan');
@@ -160,3 +137,44 @@ function scrollSection() {
 }
 
 
+
+// For Modal Function 
+function modalHide() {
+    const addElement = document.getElementById('bodyID');
+    addElement.classList.add('opacity-0');
+}
+
+function modalShow() {
+    const addElement = document.getElementById('bodyID');
+    addElement.classList.remove('opacity-0');
+}
+
+function modalActive() {
+    if (seatCount <= 0) {
+        alert("Please select at least one ticket");
+        buttonIdDisable.disabled = true;
+    } else {
+        // buttonIdDisable.disabled = false;       
+        modalHide();
+    }
+
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var nameInput = document.getElementById("name-Input");
+    var phoneInput = document.getElementById("phone-Input");
+    var nextButton = document.getElementById("next-button");
+
+    function checkValidity() {
+        if (nameInput.value.trim() !== "" && phoneInput.value.trim() !== "") {
+            nextButton.disabled = false;
+        } else {
+            nextButton.disabled = true;
+        }
+    }
+
+    nameInput.addEventListener('input', checkValidity);
+    phoneInput.addEventListener('input', checkValidity);
+});

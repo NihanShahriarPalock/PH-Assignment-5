@@ -1,29 +1,15 @@
-function updateTotalPrice() {
-    total = 0;
-    const ticketPrices = document.getElementsByClassName('ticketPrice');
-    for (let i = 0; i < ticketPrices.length; i++) {
-        total += parseInt(ticketPrices[i].innerText);
-    }
+// Declare Global Variable
 
-    // Update total price display
-    const totalPriceElement = document.getElementById('totalPrice');
-    totalPriceElement.innerText = total;
-
-    let grandTotalElement = document.getElementById("grandTotal");
-    grandTotalElement.innerText = total;
-
-}
-
-// Code Select Seat and Price 
 let seatCount = 0;
 let preventDouble = 0;
+
+
+   // Code for Select Seat and Price 
 const tickets = document.getElementsByClassName("seatClass");
 for (let index = 0; index < tickets.length; index++) {
     const ticket = tickets[index];
     ticket.addEventListener("click", function (event) {
-
         const elementId = event.target.getAttribute("id");
-
         if (preventDouble < 4) {
             const buttonElement = document.getElementById(elementId);
             if (buttonElement) {
@@ -33,7 +19,6 @@ for (let index = 0; index < tickets.length; index++) {
         }
 
         const ticketIdNumber = ticket.innerText;
-
         const ticketIdNumberShow = document.getElementById('ticketIdNumberShow');
         const tckIdShow = document.createElement("p");
         tckIdShow.innerText = ticketIdNumber;
@@ -59,7 +44,7 @@ for (let index = 0; index < tickets.length; index++) {
 
             updateTotalPrice();
         } else {
-            alert("Sorry, you cannot buy more than 4 tickets");
+            alert("Sorry, you can't buy more than 4 tickets");
         }
 
 
@@ -82,6 +67,41 @@ for (let index = 0; index < tickets.length; index++) {
 
 }
 
+
+function updateTotalPrice() {
+    total = 0;
+    const ticketPrices = document.getElementsByClassName('ticketPrice');
+    for (let i = 0; i < ticketPrices.length; i++) {
+        total += parseInt(ticketPrices[i].innerText);
+    }
+
+    const totalPriceElement = document.getElementById('totalPrice');
+    totalPriceElement.innerText = total;
+
+    let grandTotalElement = document.getElementById("grandTotal");
+    grandTotalElement.innerText = total;
+
+}
+
+
+// Coupon Code Function
+function couponCode(elementId) {
+    const discountElement = total * elementId;
+
+    let grandTotalElement = document.getElementById("grandTotal");
+    grandTotalElement.innerText = total - discountElement;
+
+    const discountId = document.getElementById('discount');
+    const discountCreateElement = document.createElement("p");
+    discountCreateElement.innerText = discountElement;
+    discountId.appendChild(discountCreateElement);
+
+    const addElement = document.getElementById('couponBox');
+    addElement.classList.add('hidden');
+    const removeElement = document.getElementById('discountDiv');
+    removeElement.classList.remove('hidden');
+
+}
 // Coupon button click event listener
 const couponBtn = document.getElementById('coupon-btn')
 couponBtn.addEventListener("click", function () {
@@ -104,26 +124,8 @@ couponBtn.addEventListener("click", function () {
     }
 })
 
-let grandTotalElement = document.getElementById("grandTotal");
 
-function couponCode(elementId) {
-    const discountElement = total * elementId;
-
-    let grandTotalElement = document.getElementById("grandTotal");
-    grandTotalElement.innerText = total - discountElement;
-
-    const discountId = document.getElementById('discount');
-    const discountCreateElement = document.createElement("p");
-    discountCreateElement.innerText = discountElement;
-    discountId.appendChild(discountCreateElement);
-
-    const addElement = document.getElementById('couponBox');
-    addElement.classList.add('hidden');
-    const removeElement = document.getElementById('discountDiv');
-    removeElement.classList.remove('hidden');
-
-}
-
+// Buy Now Button Function
 
 function scrollSection() {
     var currentSection = document.getElementById('PHParibahan');
@@ -135,6 +137,26 @@ function scrollSection() {
         });
     }
 }
+
+
+    // Next Button Function
+document.addEventListener('DOMContentLoaded', function () {
+    
+    var phoneInput = document.getElementById("phone-Input");
+    var nextButton = document.getElementById("next-button");
+
+    function checkValidity() {
+        if (phoneInput.value.trim() !== "") {
+            nextButton.disabled = false;
+        } else {
+            nextButton.disabled = true;
+        }
+    }
+
+    
+    phoneInput.addEventListener('input', checkValidity);
+});
+
 
 
 
@@ -159,22 +181,3 @@ function modalActive() {
     }
 
 }
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var nameInput = document.getElementById("name-Input");
-    var phoneInput = document.getElementById("phone-Input");
-    var nextButton = document.getElementById("next-button");
-
-    function checkValidity() {
-        if (nameInput.value.trim() !== "" && phoneInput.value.trim() !== "") {
-            nextButton.disabled = false;
-        } else {
-            nextButton.disabled = true;
-        }
-    }
-
-    nameInput.addEventListener('input', checkValidity);
-    phoneInput.addEventListener('input', checkValidity);
-});
